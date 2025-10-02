@@ -41,7 +41,7 @@ const App = () => {
       {/* NEW MAIN CONTENT WRAPPER: Takes up all available space and centers its content */}
       <main className="flex-grow flex flex-col justify-center items-center w-full 
                            sm:justify-center md:justify-center lg:justify-center 
-                           min-h-full"">
+                           min-h-full">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/buy" element={<BuyCredit />} />
