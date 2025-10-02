@@ -8,8 +8,18 @@ import imageRouter from './routes/imageRoutes.js'
 const PORT = process.env.PORT || 4000
 const app = express()
 
-app.use(express.json()); 
-app.use(cors())
+app.use(express.json()); 
+
+
+const frontendUrl = 'https://picify-frontend-pqju.onrender.com'; 
+
+app.use(cors({
+    origin: frontendUrl,        // Allows requests ONLY from your deployed frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Explicitly allow necessary methods
+    credentials: true,          // CRITICAL for allowing cookies/tokens in authentication
+}));
+// ------------------------------------------------------------------
+
 await connectDB()
 
 app.use('/api/user', userRouter)
